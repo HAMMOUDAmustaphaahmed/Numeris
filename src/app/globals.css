@@ -1,26 +1,304 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* === Reset & Base Styles === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: #ECEFF1; /* Gris doux pour fond */
+  color: #333333;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* === Container & Layout === */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+  background: linear-gradient(90deg, #6A1B9A, #AB47BC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* === Header & Reset Button === */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(90deg, #6A1B9A, #AB47BC);
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: #FFFFFF;
+}
+
+.reset-btn {
+  padding: 8px 16px;
+  background: #F48FB1; /* Rose pastel */
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.3s;
+}
+
+.reset-btn:hover {
+  background: #AB47BC; /* Violet clair hover */
+}
+
+/* === Controls & Buttons === */
+.controls, .controls-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+button, .navigation button, .generate-btn {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-weight: 600;
+  color: #FFFFFF;
+  background: linear-gradient(90deg, #6A1B9A, #AB47BC); /* Violet foncé -> clair */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+button:hover, .navigation button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  background: #F48FB1; /* Accent rose pastel hover */
+}
+
+button:disabled, .navigation button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* === File Upload === */
+.file-upload {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  gap: 4px;
+  background: #FFFFFF; /* Gris doux */
+  padding: 15px;
+  border-radius: 15px;
+  flex: 1;
+}
+
+.file-upload input[type="file"] {
+  display: block;
+  margin-top: 6px;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid #AB47BC; /* Violet clair */
+  background-color: #ECEFF1; /* Gris doux */
+  color: #333333;
+  cursor: pointer;
+}
+
+.file-upload span {
+  font-size: 0.85rem;
+  color: #6A1B9A;
+}
+
+.file-upload label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* === Text Fields List === */
+.text-fields, .textfields-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  background: #FFFFFF; /* Gris doux */
+  padding: 15px;
+  border-radius: 15px;
+  flex: 1;
+}
+
+.textfield-item, .text-fields .field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #F48FB1; /* Rose pastel */
+  border: 1px solid #AB47BC;
+  transition: all 0.2s ease;
+}
+
+.textfield-item.selected, .text-fields .field.selected {
+  border-color: #6A1B9A;
+  background: #AB47BC;
+}
+
+.textfield-item:hover, .text-fields .field:hover {
+  background: #F48FB1;
+  transform: scale(1.02);
+}
+
+/* === Field Properties === */
+.field-properties, .properties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 15px;
+  background: #FFFFFF;
+  border: 1px solid #AB47BC;
+}
+
+.field-properties label, .properties label {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+
+.field-properties input,
+.field-properties select,
+.properties input,
+.properties select {
+  margin-top: 5px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #AB47BC;
+  background-color: #ECEFF1;
+  color: #333333;
+  font-size: 0.9rem;
+}
+
+/* === Preview Area === */
+.preview, .preview-section {
+  position: relative;
+  border-radius: 20px;
+  border: 2px dashed #AB47BC;
+  min-height: 500px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.preview img, .preview iframe, .template-image {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 15px;
+}
+
+.text-field {
+  position: absolute;
+  cursor: move;
+  user-select: none;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #6A1B9A;
+  color: #FFFFFF;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.text-field:hover {
+  transform: scale(1.05);
+  background: #F48FB1;
+}
+
+.text-field.selected {
+  box-shadow: 0 0 10px #AB47BC;
+}
+
+/* === Navigation (Prev/Next) === */
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* === Generate PDF === */
+.generate-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #6A1B9A, #AB47BC);
+  color: #FFFFFF;
+}
+
+.generate-btn:hover {
+  background: #F48FB1;
+}
+
+/* === Toast / Success Message === */
+.toast, .success {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #AB47BC;
+  color: #FFFFFF;
+  padding: 12px 18px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  font-weight: 600;
+  animation: fadeinout 3s ease forwards;
+}
+
+@keyframes fadeinout {
+  0% { opacity: 0; transform: translateY(20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(20px); }
+}
+
+/* === Responsive === */
+@media (max-width: 1024px) {
+  .controls, .controls-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .field-properties, .properties {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  .preview, .preview-section { min-height: 350px; }
+  main { flex-direction: column; }
+}
+
+@media (max-width: 480px) {
+  button, .navigation button { width: 100%; }
+  .text-field { font-size: 0.8rem !important; }
 }
