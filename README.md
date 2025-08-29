@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Numeris - Invoice Generator
+https://img.shields.io/badge/React-18.x-blue
+https://img.shields.io/badge/TypeScript-4.x-blue
+https://img.shields.io/badge/PDF-Generation-red
 
-## Getting Started
+Numeris is a powerful web-based invoice generator that allows users to create customized invoices by combining Excel data with PDF or image templates.
 
-First, run the development server:
+Features
+📊 Excel Data Integration: Upload Excel/CSV files to populate invoice data
 
-```bash
+🎨 Template Support: Use PDF or image files as invoice templates
+
+✏️ Custom Text Fields: Add customizable text fields with drag-and-drop positioning
+
+🔗 Data Linking: Connect text fields to specific Excel columns for automatic population
+
+👀 Live Preview: Preview how invoices will look with actual data
+
+🎨 Style Customization: Adjust font size and color for each text field
+
+📥 PDF Export: Generate and download professional PDF invoices
+
+How to Use
+Upload Template: Select a PDF or image file to use as your invoice background
+
+Upload Data: Provide an Excel file containing your invoice data (customer information, amounts, etc.)
+
+Add Text Fields: Create text fields and position them on your template
+
+Link Data: Connect each text field to the appropriate Excel column
+
+Preview: Navigate through your data to see how each invoice will look
+
+Generate: Export the invoice as a PDF document
+
+Technology Stack
+Frontend: React 18 with TypeScript
+
+PDF Processing: pdf-lib library
+
+Excel Processing: xlsx library
+
+Styling: CSS (easily customizable)
+
+Getting Started
+Prerequisites
+Node.js (v14 or higher)
+
+npm or yarn
+
+Installation
+Clone the repository:
+
+bash
+git clone https://github.com/HAMMOUDAmustaphaahmed/Numeris.git
+cd Numeris
+Install dependencies:
+
+bash
+npm install
+Start the development server:
+
+bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open your browser and navigate to http://localhost:3000
