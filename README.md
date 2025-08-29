@@ -54,3 +54,7 @@ Numeris is a **powerful web-based invoice generator** that allows users to creat
 ```bash
 git clone https://github.com/HAMMOUDAmustaphaahmed/Numeris.git
 cd Numeris
+npm install
+npm run dev
+http://localhost:3000
+
