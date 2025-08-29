@@ -1,65 +1,56 @@
-Numeris - Invoice Generator
-https://img.shields.io/badge/React-18.x-blue
-https://img.shields.io/badge/TypeScript-4.x-blue
-https://img.shields.io/badge/PDF-Generation-red
+# Numeris - Invoice Generator
 
-Numeris is a powerful web-based invoice generator that allows users to create customized invoices by combining Excel data with PDF or image templates.
+[![React](https://img.shields.io/badge/React-18.x-blue)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-4.x-blue)](https://www.typescriptlang.org/)
+[![PDF Generation](https://img.shields.io/badge/PDF-Generation-red)](https://pdf-lib.js.org/)
 
-Features
-📊 Excel Data Integration: Upload Excel/CSV files to populate invoice data
+Numeris is a **powerful web-based invoice generator** that allows users to create **customized invoices** by combining Excel data with PDF or image templates.
 
-🎨 Template Support: Use PDF or image files as invoice templates
+---
 
-✏️ Custom Text Fields: Add customizable text fields with drag-and-drop positioning
+## Features
 
-🔗 Data Linking: Connect text fields to specific Excel columns for automatic population
+- 📊 **Excel Data Integration**: Upload Excel/CSV files to populate invoice data.
+- 🎨 **Template Support**: Use PDF or image files as invoice templates.
+- ✏️ **Custom Text Fields**: Add customizable text fields with drag-and-drop positioning.
+- 🔗 **Data Linking**: Connect text fields to specific Excel columns for automatic population.
+- 👀 **Live Preview**: Preview how invoices will look with actual data.
+- 🎨 **Style Customization**: Adjust font size and color for each text field.
+- 📥 **PDF Export**: Generate and download professional PDF invoices.
 
-👀 Live Preview: Preview how invoices will look with actual data
+---
 
-🎨 Style Customization: Adjust font size and color for each text field
+## How to Use
 
-📥 PDF Export: Generate and download professional PDF invoices
+1. **Upload Template**: Select a PDF or image file to use as your invoice background.
+2. **Upload Data**: Provide an Excel file containing your invoice data (customer information, amounts, etc.).
+3. **Add Text Fields**: Create text fields and position them on your template.
+4. **Link Data**: Connect each text field to the appropriate Excel column.
+5. **Preview**: Navigate through your data to see how each invoice will look.
+6. **Generate**: Export the invoice as a PDF document.
 
-How to Use
-Upload Template: Select a PDF or image file to use as your invoice background
+---
 
-Upload Data: Provide an Excel file containing your invoice data (customer information, amounts, etc.)
+## Technology Stack
 
-Add Text Fields: Create text fields and position them on your template
+- **Frontend**: React 18 with TypeScript
+- **PDF Processing**: [pdf-lib](https://pdf-lib.js.org/)
+- **Excel Processing**: [xlsx](https://github.com/SheetJS/sheetjs)
+- **Styling**: CSS (easily customizable)
 
-Link Data: Connect each text field to the appropriate Excel column
+---
 
-Preview: Navigate through your data to see how each invoice will look
+## Getting Started
 
-Generate: Export the invoice as a PDF document
+### Prerequisites
 
-Technology Stack
-Frontend: React 18 with TypeScript
+- Node.js (v14 or higher)
+- npm or yarn
 
-PDF Processing: pdf-lib library
+### Installation
 
-Excel Processing: xlsx library
+1. Clone the repository:
 
-Styling: CSS (easily customizable)
-
-Getting Started
-Prerequisites
-Node.js (v14 or higher)
-
-npm or yarn
-
-Installation
-Clone the repository:
-
-bash
+```bash
 git clone https://github.com/HAMMOUDAmustaphaahmed/Numeris.git
 cd Numeris
-Install dependencies:
-
-bash
-npm install
-Start the development server:
-
-bash
-npm run dev
-Open your browser and navigate to http://localhost:3000
